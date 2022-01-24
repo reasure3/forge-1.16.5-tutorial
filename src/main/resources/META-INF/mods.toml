@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+
+[[mods]]
+modId="tutorial"
+version="${file.jarVersion}"
+displayName="Tutorial Mod"
+authors="reasure"
+description='''
+자바 모딩 튜토리얼
+'''
+
+[[dependencies.tutorial]]
+    modId="forge" #mandatory
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.tutorial]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
