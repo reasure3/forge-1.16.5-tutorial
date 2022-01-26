@@ -1,6 +1,7 @@
 package com.reasure.tutorial.block;
 
 import com.reasure.tutorial.TutorialMod;
+import com.reasure.tutorial.block.custom.SpeedBoosterBlock;
 import com.reasure.tutorial.item.ModItemGroup;
 import com.reasure.tutorial.item.ModItems;
 import net.minecraft.block.AbstractBlock;
@@ -28,6 +29,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> SILVER_BLOCK = register("silver_block", () ->
             new Block(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).harvestTool(ToolType.PICKAXE)
                     .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> SPEED_BOOSTER_BLOCK = register("speed_booster_block", () ->
+            new SpeedBoosterBlock(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY)
+                    .strength(3.0F, 6.0F)));
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

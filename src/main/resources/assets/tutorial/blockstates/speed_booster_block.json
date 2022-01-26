@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tutorial:block/speed_booster_block"
+    },
+    "facing=south": {
+      "model": "tutorial:block/speed_booster_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tutorial:block/speed_booster_block",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "tutorial:block/speed_booster_block",
+      "y": 90
+    }
+  }
+}
