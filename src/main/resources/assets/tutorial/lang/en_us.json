@@ -2,5 +2,7 @@
   "block.tutorial.silver_ore": "Silver Ore",
   "block.tutorial.silver_block": "Silver Block",
 
-  "item.tutorial.silver_ingot": "Silver Ingot"
+  "item.tutorial.example": "Example Item",
+  "item.tutorial.silver_ingot": "Silver Ingot",
+  "item.tutorial.dowsing_machine": "Dowsing Machine"
 }
