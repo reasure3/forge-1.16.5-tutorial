@@ -2,5 +2,7 @@
   "block.tutorial.silver_ore": "은광석",
   "block.tutorial.silver_block": "은 블록",
 
-  "item.tutorial.silver_ingot": "은 주괴"
+  "item.tutorial.example": "튜토리얼 아이템",
+  "item.tutorial.silver_ingot": "은 주괴",
+  "item.tutorial.dowsing_machine": "다우징 머신"
 }

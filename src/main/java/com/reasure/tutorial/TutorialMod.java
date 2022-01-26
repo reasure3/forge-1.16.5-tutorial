@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 public class TutorialMod {
     public static final String MOD_ID = "tutorial";
     @Getter
-    public static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public TutorialMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

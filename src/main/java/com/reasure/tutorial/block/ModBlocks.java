@@ -1,6 +1,7 @@
 package com.reasure.tutorial.block;
 
 import com.reasure.tutorial.TutorialMod;
+import com.reasure.tutorial.item.ModItemGroup;
 import com.reasure.tutorial.item.ModItems;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -9,7 +10,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -39,7 +39,7 @@ public class ModBlocks {
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block) {
         RegistryObject<Block> ret = registerNoItem(name, block);
-        ModItems.ITEMS.register(name, () -> new BlockItem(ret.get(), new Item.Properties().tab(ItemGroup.TAB_MISC)));
+        ModItems.ITEMS.register(name, () -> new BlockItem(ret.get(), new Item.Properties().tab(ModItemGroup.TAB_EXAMPLE)));
         return ret;
     }
 }
