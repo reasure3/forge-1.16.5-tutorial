@@ -45,6 +45,7 @@ public class SpeedBoosterBlock extends Block {
         return state.setValue(FACING, direction.rotate(state.getValue(FACING)));
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public BlockState mirror(BlockState state, Mirror mirror) {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
