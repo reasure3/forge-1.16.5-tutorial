@@ -2,6 +2,7 @@ package com.reasure.tutorial.entity.custom;
 
 import com.reasure.tutorial.entity.ModEntityTypes;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -38,6 +39,7 @@ public class HogEntity extends AnimalEntity {
                 .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
+    // 커스텀 엔티티라면 필수로 적어야 하는 코드
     @Override
     public IPacket<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
@@ -156,8 +158,18 @@ public class HogEntity extends AnimalEntity {
                 // 2 - 1. 탑승 중인 엔티티가 플레이어 -> Client Player 인가?
                 // 2 - 2. 탑승 중인 엔티티가 나머지 -> Server Side 인가?
                 if (this.isControlledByLocalInstance()) {
+                    // 점프 컨트롤
+                    if (passenger instanceof ClientPlayerEntity) {
+                        if (!this.jumping && this.isOnGround() && ((ClientPlayerEntity) passenger).input.jumping) {
+                            this.jumpFromGround();
+                        }
+                    }
+
+                    // 그냥 이동 컨트롤
+                    this.flyingSpeed = this.getSpeed() * 0.1f;
                     this.setSpeed((float) this.getAttributeValue(Attributes.MOVEMENT_SPEED));
-                    super.travel(getHogSpeed(passenger));
+                    super.travel(getHogSpeed(passenger, travelVector.y));
+
                     // 두 틱간 중간의 과정을 보간하기 위한 값을 초기화
                     this.lerpSteps = 0;
                 } else {
@@ -168,14 +180,15 @@ public class HogEntity extends AnimalEntity {
         } else {
             // 누가 타고 있지 않으면
             this.maxUpStep = 0.5f;
+            this.flyingSpeed = 0.02f;
             super.travel(travelVector);
         }
     }
-
-    private Vector3d getHogSpeed(LivingEntity passenger) {
+    
+    private Vector3d getHogSpeed(LivingEntity passenger, double y) {
         double movement_speed = this.getAttributeValue(Attributes.MOVEMENT_SPEED) * controlSpeedModifier;
         if (passenger.isSprinting()) movement_speed *= sprintSpeedModifier;
-        return new Vector3d(movement_speed * getDirect(passenger.xxa), passenger.yya, movement_speed * getDirect(passenger.zza));
+        return new Vector3d(movement_speed * getDirect(passenger.xxa), y, movement_speed * getDirect(passenger.zza));
     }
 
     private int getDirect(double speed) {
