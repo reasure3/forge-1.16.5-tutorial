@@ -1,9 +1,11 @@
 package com.reasure.tutorial;
 
 import com.reasure.tutorial.block.ModBlocks;
+import com.reasure.tutorial.client.ModKeyBinding;
 import com.reasure.tutorial.entity.ModEntityTypes;
 import com.reasure.tutorial.entity.render.BuffZombieRenderer;
 import com.reasure.tutorial.entity.render.HogRenderer;
+import com.reasure.tutorial.entity.render.PaperPlaneRenderer;
 import com.reasure.tutorial.entity.render.PigeonRenderer;
 import com.reasure.tutorial.item.ModItems;
 import lombok.Getter;
@@ -39,5 +41,8 @@ public class TutorialMod {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BUFF_ZOMBIE.get(), BuffZombieRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PIGEON.get(), PigeonRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.HOG.get(), HogRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PAPER_PLANE.get(), PaperPlaneRenderer::new);
+
+        ModKeyBinding.init();
     }
 }

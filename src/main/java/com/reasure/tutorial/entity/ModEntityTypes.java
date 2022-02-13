@@ -3,6 +3,7 @@ package com.reasure.tutorial.entity;
 import com.reasure.tutorial.TutorialMod;
 import com.reasure.tutorial.entity.custom.BuffZombieEntity;
 import com.reasure.tutorial.entity.custom.HogEntity;
+import com.reasure.tutorial.entity.custom.PaperPlaneEntity;
 import com.reasure.tutorial.entity.custom.PigeonEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -29,6 +30,12 @@ public class ModEntityTypes {
             () -> EntityType.Builder.of(PigeonEntity::new, EntityClassification.CREATURE)
                     .sized(0.4f, 0.3f) // 히트박스 크기 (단위: 블럭)
                     .build(new ResourceLocation(TutorialMod.MOD_ID, "pigeon").toString()));
+
+    public static final RegistryObject<EntityType<PaperPlaneEntity>> PAPER_PLANE = ENTITY_TYPES.register("paper_plane",
+            () -> EntityType.Builder.of(PaperPlaneEntity::new, EntityClassification.MISC)
+                    .clientTrackingRange(10)
+                    .sized(1.9f, 0.5f)
+                    .build(new ResourceLocation(TutorialMod.MOD_ID, "paper_plane").toString()));
 
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);
