@@ -75,7 +75,6 @@ public class PaperPlaneEntity extends Entity {
     }
 
     // 렌더링 보간을 위한 함수. 조종중일 때는, 서버에 위치 보내기.
-    // 그 외의 경우엔 아직 작성 못함.
     private void tickLerp() {
         if (isControlledByLocalInstance()) {
             lerpSteps = 0;
