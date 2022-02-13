@@ -190,15 +190,20 @@ public class PaperPlaneEntity extends Entity {
         }
     }
 
-    @Override
-    protected boolean canAddPassenger(Entity passenger) {
-        return super.canAddPassenger(passenger);
-    }
-
-    @Override
-    public void onPassengerTurned(Entity entityToUpdate) {
-        super.onPassengerTurned(entityToUpdate);
-    }
+    //    @Override
+    //    protected boolean canAddPassenger(Entity passenger) {
+    //        return super.canAddPassenger(passenger);
+    //    }
+    //
+    //    @Override
+    //    public void onPassengerTurned(Entity entityToUpdate) {
+    //        super.onPassengerTurned(entityToUpdate);
+    //    }
+    //
+    //    @Override
+    //    public void move(MoverType type, Vector3d pos) {
+    //        super.move(type, pos);
+    //    }
 
     @Override
     protected void defineSynchedData() {
@@ -211,13 +216,7 @@ public class PaperPlaneEntity extends Entity {
     }
 
     @Override
-    public void move(MoverType type, Vector3d pos) {
-        super.move(type, pos);
-    }
-
-    @Override
     protected void addAdditionalSaveData(CompoundNBT compound) {
 
     }
-
 }
